@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "File Comparer";
+}
+
+<h2>File Comparer</h2>
+
+@using (Html.BeginForm("CompareAndCopy", "FileComparer", FormMethod.Post))
+{
+    <div>
+        <label for="oldFilePath">Old File Path:</label>
+        <input type="text" name="oldFilePath" id="oldFilePath" />
+    </div>
+    <div>
+        <label for="newFilePath">New File Path:</label>
+        <input type="text" name="newFilePath" id="newFilePath" />
+    </div>
+    <div>
+        <input type="submit" value="Compare and Copy" />
+    </div>
+}
+
+@if (!string.IsNullOrEmpty(ViewBag.ResultMessage))
+{
+    <div>
+        <p>@ViewBag.ResultMessage</p>
+    </div>
+}
